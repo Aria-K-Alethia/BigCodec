@@ -8,7 +8,10 @@ Code is tested on `python3.9`
 Please follow the following steps to setup your environment
 1. Clone this repo
 2. `pip install -r requirements.txt`
-3. Download the pretrained checkpoint by `wget https://huggingface.co/Alethia/BigCodec/resolve/main/bigcodec.pt`
+3. Download the pretrained checkpoint by
+```bash
+wget https://huggingface.co/Alethia/BigCodec/resolve/main/bigcodec.pt
+```
 
 ## Inference
 ```bash
