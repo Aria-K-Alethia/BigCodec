@@ -43,7 +43,7 @@ if __name__ == '__main__':
         wav = torch.nn.functional.pad(wav, (0, (200 - (wav.shape[1] % 200))))
         with torch.no_grad():
             vq_emb = encoder(wav.unsqueeze(1))
-            vq_post_emb, _, _ = decoder(vq_emb, vq=True)
+            vq_post_emb, vq_code, _ = decoder(vq_emb, vq=True)
             recon = decoder(vq_post_emb, vq=False).squeeze().detach().cpu().numpy()
         sf.write(target_wav_path, recon, sr)
     et = time()
