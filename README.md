@@ -21,6 +21,8 @@ python inference.py --input-dir /input/wav/dir --output-dir /output/wav/dir --ck
 ```
 The above cmd reconstruct all `.wav` files under the input directory and write the results to the output directory using the checkpoint.
 
+BigCodec extracts a single token to represent each frame of the utterance. Refer to `inference.py` to find how to get the code.
+
 ## Citation
 
 ## LICENCE
