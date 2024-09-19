@@ -1,4 +1,6 @@
 # BigCodec
+Official implementation of the paper "BigCodec: Pushing the Limits of Low-Bitrate Neural Speech Codec"
+
 >**Abstract:**<br>
 We present BigCodec, a low-bitrate neural speech codec. While recent neural speech codecs have shown impressive progress, their performance significantly deteriorates at low bitrates (around 1 kbps). Although a low bitrate inherently restricts performance, other factors, such as model capacity, also hinder further improvements. To address this problem, we scale up the model size to 159M parameters that is more than 10 times larger than popular codecs with about 10M parameters. Besides, we integrate sequential models into traditional convolutional architectures to better capture temporal dependency and adopt low-dimensional vector quantization to ensure a high code utilization. Comprehensive objective and subjective evaluations show that BigCodec, with a bitrate of 1.04 kbps, significantly outperforms several existing low-bitrate codecs. Furthermore, BigCodec achieves objective performance comparable to popular codecs operating at 4-6 times higher bitrates, and even delivers better subjective perceptual quality than the ground truth.
 
@@ -40,7 +42,7 @@ python train.py train.trainer.accelerator=gpu train.trainer.devices=1
 
 3. Inference:
 ```bash
-python3 inference_train.py ckpt=/path/to/ckpt input_dir=/input/wav/dir output_dir=/output/wav/dir train.trainer.precision=32 hydra.output_subdir=null hydra.job.chdir=False
+python inference_train.py ckpt=/path/to/ckpt input_dir=/input/wav/dir output_dir=/output/wav/dir train.trainer.precision=32 hydra.output_subdir=null hydra.job.chdir=False
 ```
 
 If everything goes well, you will find the reconstructed wav files in `output_dir`.
