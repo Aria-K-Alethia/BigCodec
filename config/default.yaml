@@ -1,0 +1,14 @@
+defaults:
+  - preprocess: default
+  - dataset: default
+  - model: default
+  - train: default
+log_dir: pl_log
+debug: false
+ckpt: null # infer
+input_dir: null # infer
+output_dir: null # infer
+hydra:
+  output_subdir: hydra
+  job:
+    chdir: True

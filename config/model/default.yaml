@@ -1,0 +1,45 @@
+codec_encoder:
+  out_channels: 1024
+  ngf: 48
+  use_rnn: True
+  rnn_bidirectional: False
+  rnn_num_layers: 2
+  up_ratios: [2, 2, 2, 5, 5]
+  dilations: [1, 3, 9]
+
+codec_decoder:
+  in_channels: 1024
+  upsample_initial_channel: 1536
+  ngf: 48
+  use_rnn: True
+  rnn_bidirectional: False
+  rnn_num_layers: 2
+  up_ratios: [5, 5, 2, 2, 2] # [2, 5, 5, 4]
+  dilations: [1, 3, 9]
+  vq_num_quantizers: 1
+  vq_dim: 1024
+  vq_commit_weight: 0.25
+  vq_weight_init: False
+  vq_full_commit_loss: False
+  codebook_size: 8192
+  codebook_dim: 8
+
+mpd:
+  periods: [2, 3, 5, 7, 11]
+  max_downsample_channels: 512
+  channels: 16
+  channel_increasing_factor: 4
+
+mstft:
+  stft_params:
+    fft_sizes: [128, 256, 512, 1024, 2048]
+    hop_sizes: [32, 64, 128, 256, 512]
+    win_lengths: [128, 256, 512, 1024, 2048]
+    window: hann_window
+  in_channels: 1
+  out_channels: 1
+  kernel_sizes: [5, 3]
+  channels: 32
+  max_downsample_channels: 512
+  downsample_scales: [2, 2, 2]
+  use_weight_norm: True

@@ -1,0 +1,48 @@
+trainer:
+  accelerator: 'gpu'
+  devices: 1
+  min_steps: 1200000
+  max_steps: 1200000
+  precision: 16-mixed
+  limit_val_batches: 0
+  num_sanity_val_steps: 0
+  accumulate_grad_batches:  1
+
+# loss
+lambdas:
+  lambda_disc: 1.0
+  lambda_feat_match_loss: 1.0
+  lambda_mel_loss: 15.0
+  lambda_adv: 1.0
+  lambda_stft_loss: 1.0
+
+use_mel_loss: true
+use_feat_match_loss: true
+
+stft_loss_params:
+  fft_sizes: [ 128, 256, 512, 1024, 2048 ]
+  hop_sizes: [ 32, 64, 128, 256, 512 ]
+  win_lengths: [ 128, 256, 512, 1024, 2048 ]
+  window: hann_window
+
+# optimizer
+gen_optim_params:
+  lr: 1.0
+  betas: [0.8, 0.9]
+disc_optim_params:
+  lr: 1.0
+  betas: [0.8, 0.9]
+gen_grad_clip: 1.0
+disc_grad_clip: 1.0
+
+# scheduler
+gen_schedule_params:
+  warmup_step: 1000
+  down_step: 500000
+  min_lr: 1.0e-5 # this should be the final lr
+  max_lr: 1.0e-4 
+disc_schedule_params:
+  warmup_step: 1000
+  down_step: 500000
+  min_lr: 1.0e-5 # this should be the final lr
+  max_lr: 1.0e-4 

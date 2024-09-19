@@ -1,0 +1,16 @@
+datasets:
+    LibriSpeech:
+        root: /home/xindetai/Downloads/LibriSpeech
+        trainsets: ['train-clean-100', 'train-clean-360', 'train-other-500']
+        testsets: ['dev-clean']
+view:
+    train_filelist: ./filelists/librispeech_train.txt
+    test_filelist: ./filelists/librispeech_test.txt
+audio:
+  sr: 16000
+  normalization: False
+  max_wav_value: 32768.0
+stft:
+  n_fft: 800
+  window_length: 800
+  hop_length: 200

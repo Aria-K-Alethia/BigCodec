@@ -47,4 +47,4 @@ if __name__ == '__main__':
             recon = decoder(vq_post_emb, vq=False).squeeze().detach().cpu().numpy()
         sf.write(target_wav_path, recon, sr)
     et = time()
-    print(f'Inference ends, time: {(et-st)/3600:.2f} mins')
+    print(f'Inference ends, time: {(et-st)/60:.2f} mins')

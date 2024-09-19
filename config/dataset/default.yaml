@@ -1,0 +1,20 @@
+dataset:
+  _target_: data_module.FSDataset
+
+train:
+  filelist: ./filelists/librispeech_train.txt
+  batch_size: 8
+  shuffle: true
+
+val:
+  filelist: ./filelists/librispeech_val.txt
+  batch_size: 8
+  shuffle: false
+
+test:
+  filelist: ./filelists/librispeech_test.txt
+  batch_size: 1
+  shuffle: false
+padding_idx: 0
+frame_length: 200
+min_audio_length: 16000
